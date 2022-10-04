@@ -1,15 +1,7 @@
-from flask import Flask,request
+#This python function is used to return keyword with Nikhil Mandge author name
+#Output URL :- https://faas-nyc1-2ef2e6cc.doserverless.co/api/v1/web/fn-45ba06c0-f385-4da7-aa9c-3625f98e16c9/assignment09/say?keyword=Test
 
-app = Flask(__name__)
-
-@app.route("/say")
-def hello_world():
-    keyword = request.args.get('keyword')
-    if keyword:
-        return "Nikhil Mandge says "+keyword 
-    else:
-        return "Please add correct url"
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True, threaded=True)
+def main(args):
+    keyword = args.get("keyword")
+    res = "Nikhil Mandge says " + keyword
+    return {"body": res}
